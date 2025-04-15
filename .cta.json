@@ -1,0 +1,22 @@
+{
+  "framework": "react",
+  "typescript": true,
+  "projectName": "template-react-tsrouter",
+  "mode": "file-router",
+  "tailwind": true,
+  "packageManager": "npm",
+  "toolchain": "biome",
+  "variableValues": {},
+  "git": true,
+  "version": 1,
+  "existingAddOns": [
+    "clerk",
+    "convex",
+    "form",
+    "shadcn",
+    "store",
+    "t3env",
+    "table",
+    "tanstack-query"
+  ]
+}

@@ -1,6 +1,23 @@
+import { ConvexQueryClient } from "@convex-dev/react-query";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-const queryClient = new QueryClient();
+// Initialize ConvexQueryClient
+const convexQueryClient = new ConvexQueryClient(
+	import.meta.env.VITE_CONVEX_URL,
+);
+
+// Initialize QueryClient
+const queryClient = new QueryClient({
+	defaultOptions: {
+		queries: {
+			queryKeyHashFn: convexQueryClient.hashFn(),
+			queryFn: convexQueryClient.queryFn(),
+		},
+	},
+});
+
+// Connect ConvexQueryClient to QueryClient
+convexQueryClient.connect(queryClient);
 
 export function getContext() {
 	return {
